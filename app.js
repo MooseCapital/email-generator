@@ -7,23 +7,19 @@ let lastNames = [
 ]
 
 let email_display = document.querySelector(".email-display");
-// let generate_btn = document.querySelector(".generate-btn");
-
+let generate_btn = document.querySelector(".generate-btn");
 
 let random_0_99 = Math.floor(Math.random() * 100); // doing + 1, would make it start from 1, we want 0-100
 let random_1_1000000 = Math.floor(Math.random() * 1000000) + 1;
 
-function generate_Email() {
-    return `${firstNames[random_0_99]}${lastNames[random_0_99]}${random_1_1000000}@gmail.com`
-}
+generate_btn.addEventListener("click", (e) => {
+   // email_display.textContent = `${firstNames[Math.floor(Math.random() * 100)]}${lastNames[Math.floor(Math.random() * 100)]}${Math.floor(Math.random() * 1000000) + 1}@gmail.com`
+    email_display.value = `${firstNames[Math.floor(Math.random() * 100)]}${lastNames[Math.floor(Math.random() * 100)]}${Math.floor(Math.random() * 1000000) + 1}@gmail.com`
 
+    email_display.select();
+    navigator.clipboard.writeText(email_display.value)
 
-document.querySelector(".app").addEventListener("click", (e) => {
-    if (e.target.closest(".generate-btn")) {
-        email_display.textContent = generate_Email()
-    }
-    console.log(email_display.textContent)
-
+    console.log({email_Test: email_display.value})
 })
 
 }

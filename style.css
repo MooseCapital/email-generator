@@ -34,8 +34,9 @@ body {
 }
 
 .email-display {
-text-align: center;
-font-size: 50px;
+width: 100%;
+color: black;
+font-size: 40px;
 margin: 20px 0;
 }
 
